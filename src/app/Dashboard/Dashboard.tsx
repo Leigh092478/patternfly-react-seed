@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { PageSection, Title } from '@patternfly/react-core';
+import { PageSection, Title,
+  Grid, GridItem} from '@patternfly/react-core';
 
 const Dashboard: React.FunctionComponent = () => (
   <PageSection>
-    <Title headingLevel="h1" size="lg">Dashboard Page Title!</Title>
+    <Grid hasGutter>
+      <GridItem span={3}>span = 2</GridItem>
+      <GridItem span={3}>span = 2</GridItem>
+      <GridItem span={3}>span = 2</GridItem>
+      <GridItem span={3}>span = 2</GridItem>
+      <GridItem span={10}>span = 8</GridItem>
+
+    </Grid>
   </PageSection>
 )
 

@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import {
   Button, Masthead,
   MastheadBrand,
+  MastheadContent,
   MastheadMain,
   MastheadToggle,
   Nav,
@@ -12,17 +13,20 @@ import {
   Page,
   PageSidebar,
   PageSidebarBody,
-  SkipToContent, Title, TitleSizes
+  SearchInput, SkipToContent, Title,
+  TitleSizes
 } from '@patternfly/react-core';
 import { IAppRoute, IAppRouteGroup, routes } from '@app/routes';
 import { BarsIcon } from '@patternfly/react-icons';
+import { SearchInputWithSubmitButton } from '@app/Components/SearchInput';
 
 interface IAppLayout {
   children: React.ReactNode;
 }
 
+
 const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = React.useState(true);
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
   const Header = (
     <Masthead>
       <MastheadToggle>
@@ -32,11 +36,14 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       </MastheadToggle>
       <MastheadMain>
         <MastheadBrand>
-          <Title headingLevel="h1" size={TitleSizes['2xl']}>
+          <Title headingLevel="h2" size={TitleSizes['2xl']}>
             SK8s Admin
           </Title>
         </MastheadBrand>
       </MastheadMain>
+      <MastheadContent>
+        <SearchInputWithSubmitButton />
+      </MastheadContent>
     </Masthead>
   );
 
